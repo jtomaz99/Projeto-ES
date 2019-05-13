@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+
+get 'funcionarios/new'
+get  '/signup'  => 'funcionarios#new'
+post '/signup'  => 'funcionarios#create'
+
+root 'static_pages#home'
+get 'roots' => 'static_pages#home'
+
+resources :funcionarios
 end
