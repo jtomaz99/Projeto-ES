@@ -1,1 +1,32 @@
-<%= @funcionario.nome %>
+<h1>Seu Perfil</h1>
+<br>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Telefone</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @funcionario.nome %></td>
+    <td><%= @funcionario.celular %></td>
+  </tr>
+  </tbody>
+  
+</table>
+    <br>
+ 
+    
+  <br>  
+    
+<li><%= link_to "Profile", current_user %></li>
+ <%= link_to "Log out", logout_path, method: :delete %>
+
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>

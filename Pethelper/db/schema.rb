@@ -11,15 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190512032314) do
+ActiveRecord::Schema.define(version: 20190526034739) do
+
+  create_table "animals", force: :cascade do |t|
+    t.integer  "casa_abrigo"
+    t.string   "tipo"
+    t.string   "raca"
+    t.float    "tamanho"
+    t.integer  "idade"
+    t.float    "peso"
+    t.string   "sexo"
+    t.text     "resumo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "nome"
+    # t.binary   "foto"
+  end
+
+  create_table "casa_abrigos", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "documento"
+    t.string   "endereco"
+    t.string   "telefone"
+    t.string   "email"
+    t.string   "site"
+    t.string   "dadosBanc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "funcionarios", force: :cascade do |t|
-    t.integer  "matricula"
-    t.integer  "celular"
+    t.integer  "matricula",       limit: 8
+    t.integer  "celular",         limit: 8
     t.string   "nome"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "password_digest"
+    t.integer  "role"
+    t.integer  "casa_id"
   end
 
   add_index "funcionarios", ["matricula"], name: "index_funcionarios_on_matricula", unique: true

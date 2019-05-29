@@ -4,6 +4,11 @@ class FuncionariosController < ApplicationController
     @funcionario = Funcionario.new
   end
   
+
+  
+  def newmanager
+   @manager = Funcionario.new
+ end
   
   
    def show
@@ -24,11 +29,14 @@ class FuncionariosController < ApplicationController
   end
   
   
+
   
    private
 
     def funcionario_params
-      params.require(:funcionario).permit(:matricula, :nome, :celular, :password, :password_confirmation)
+      params.require(:funcionario).permit(:matricula, :nome, :celular,:casa_id,:password, :password_confirmation, :role )
     end
+    
+    
   
 end
